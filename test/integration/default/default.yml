@@ -1,0 +1,11 @@
+---
+
+- hosts: localhost
+  vars:
+    elasticsearch_version: 5.4.2
+  roles:
+    - ansible-role-elasticsearch
+  tasks:
+  - yum:
+      name: java-1.8.0-openjdk
+    become: true

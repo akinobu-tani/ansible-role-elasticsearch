@@ -1,0 +1,20 @@
+---
+
+- set_fact:
+    download_url: https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-{{elasticsearch_version}}.tar.gz
+    src_path: /usr/local/src/elasticsearch-{{elasticsearch_version}}
+
+- become: true
+  block:
+
+    - name: download and extract git tarball
+      unarchive:
+        src: "{{download_url}}"
+        dest: /usr/local/src
+        creates: "{{src_path}}/bin/elasticsearch"
+        remote_src: yes
+
+    - file:
+        src: "{{src_path}}/bin/elasticsearch"
+        dest: /usr/local/bin/elasticsearch
+        state: link

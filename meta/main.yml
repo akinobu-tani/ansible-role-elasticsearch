@@ -1,0 +1,18 @@
+galaxy_info:
+  author: Akinobu Tani
+  description: Install Elasticsearch
+  license: MIT
+
+  min_ansible_version: 1.2
+
+  platforms:
+    - name: EL
+      versions:
+        - 7
+    - name: Amazon
+      versions:
+        - 2017.03
+
+  galaxy_tags: []
+
+dependencies: []
