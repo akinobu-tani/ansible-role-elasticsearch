@@ -1,0 +1,33 @@
+---
+
+- name: make log directory
+  file:
+    path: "{{elasticsearch_log_dir}}"
+    state: directory
+    owner: elasticsearch
+    group: elasticsearch
+    mode: 0755
+
+- name: create data directory
+  file:
+    path: "{{elasticsearch_data_dir}}"
+    state: directory
+    owner: elasticsearch
+    group: elasticsearch
+    mode: 0755
+
+- name: elasticsearch.yml
+  template:
+    src: "{{elasticsearch_config_template}}"
+    dest: /etc/elasticsearch/elasticsearch.yml
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart elasticsearch
+
+- name: start service
+  service:
+    name: elasticsearch
+    state: started
+    enabled: yes

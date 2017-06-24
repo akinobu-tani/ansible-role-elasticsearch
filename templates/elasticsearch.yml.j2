@@ -1,0 +1,23 @@
+# cluster:
+#   name: my-application
+# node:
+#   name: node-1
+#   rack: r1
+path:
+  data: {{elasticsearch_data_dir}}
+  logs: {{elasticsearch_log_dir}}
+# bootstrap:
+#   memory_lock: true
+# network:
+#   host: 192.168.0.1
+#   port: 9200
+# discovery:
+#   zen:
+#     ping:
+#       unicast:
+#         hosts: ["host1", "host2"]
+#     minimum_master_nodes: 3
+# gateway:
+#   recover_after_nodes: 3
+# action:
+#   destructive_requires_name: true

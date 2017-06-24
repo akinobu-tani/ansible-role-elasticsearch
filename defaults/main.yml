@@ -1,2 +1,4 @@
 ---
-# defaults file for ansible-role-elasticsearch
+
+elasticsearch_config_template: elasticsearch.yml.j2
+elasticsearch_data_dir: /var/lib/elasticsearch

@@ -1,18 +1,7 @@
 ---
 
-- set_fact:
-    rpm_url: https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-{{elasticsearch_version}}.rpm
-
 - become: true
   block:
 
-    - name: install elasticsearch
-      yum:
-        name: "{{rpm_url}}"
-        state: present
-
-    - name: start service
-      service:
-        name: elasticsearch
-        state: started
-        enabled: yes
+    - include: install.yml
+    - include: configure.yml
