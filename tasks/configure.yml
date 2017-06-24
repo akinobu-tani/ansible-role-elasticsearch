@@ -16,6 +16,12 @@
     group: elasticsearch
     mode: 0755
 
+- name: change config directory permission
+  file:
+    path: /etc/elasticsearch
+    state: directory
+    mode: 0755
+
 - name: elasticsearch.yml
   template:
     src: "{{elasticsearch_config_template}}"
