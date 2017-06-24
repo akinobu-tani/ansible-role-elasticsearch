@@ -27,8 +27,18 @@
     src: "{{elasticsearch_config_template}}"
     dest: /etc/elasticsearch/elasticsearch.yml
     owner: root
-    group: root
-    mode: 0644
+    group: elasticsearch
+    mode: 0664
+  notify:
+    - restart elasticsearch
+
+- name: jvm.options
+  template:
+    src: "{{elasticsearch_jvm_options_template}}"
+    dest: /etc/elasticsearch/jvm.options
+    owner: root
+    group: elasticsearch
+    mode: 0664
   notify:
     - restart elasticsearch
 
