@@ -1,6 +1,6 @@
 require '/tmp/kitchen/spec/spec_helper.rb'
 
-describe command('elasticsearch --version') do
-  let(:path) { '/usr/local/bin:$PATH' }
-  its(:exit_status) { should eq 0 }
+describe service('elasticsearch') do
+  it { should be_running }
+  it { should be_enabled }
 end

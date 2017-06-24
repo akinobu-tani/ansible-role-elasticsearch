@@ -1,20 +1,18 @@
 ---
 
 - set_fact:
-    download_url: https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-{{elasticsearch_version}}.tar.gz
-    src_path: /usr/local/src/elasticsearch-{{elasticsearch_version}}
+    rpm_url: https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-{{elasticsearch_version}}.rpm
 
 - become: true
   block:
 
-    - name: download and extract git tarball
-      unarchive:
-        src: "{{download_url}}"
-        dest: /usr/local/src
-        creates: "{{src_path}}/bin/elasticsearch"
-        remote_src: yes
+    - name: install elasticsearch
+      yum:
+        name: "{{rpm_url}}"
+        state: present
 
-    - file:
-        src: "{{src_path}}/bin/elasticsearch"
-        dest: /usr/local/bin/elasticsearch
-        state: link
+    - name: start service
+      service:
+        name: elasticsearch
+        state: started
+        enabled: yes

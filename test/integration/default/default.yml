@@ -3,9 +3,9 @@
 - hosts: localhost
   vars:
     elasticsearch_version: 5.4.2
+  pre_tasks:
+    - yum:
+        name: java-1.8.0-openjdk
+      become: true
   roles:
     - ansible-role-elasticsearch
-  tasks:
-  - yum:
-      name: java-1.8.0-openjdk
-    become: true
