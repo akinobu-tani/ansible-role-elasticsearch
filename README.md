@@ -23,9 +23,11 @@ elasticsearch_version: 5.4.2
 ``` yaml
 elasticsearch_config_template: elasticsearch.yml.j2
 elasticsearch_jvm_options_template: jvm.options.j2
-elasticsearch_data_dir: /var/lib/elasticsearch
 
 elasticsearch_cluster_name: elasticsearch
+elasticsearch_host: _local_
+elasticsearch_port: 9200
+elasticsearch_data_dir: /var/lib/elasticsearch
 elasticsearch_jvm_xms: 2g
 elasticsearch_jvm_xmx: 2g
 ```
