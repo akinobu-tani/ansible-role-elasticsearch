@@ -3,6 +3,8 @@
 - hosts: localhost
   vars:
     elasticsearch_version: 5.4.2
+    elasticsearch_plugins:
+      - analysis-kuromoji
   pre_tasks:
     - yum:
         name: java-1.8.0-openjdk

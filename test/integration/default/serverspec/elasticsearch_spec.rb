@@ -8,3 +8,7 @@ end
 describe command('curl http://localhost:9200') do
   its(:stdout) { should match /"cluster_name" : "elasticsearch"/ }
 end
+
+describe command('/usr/share/elasticsearch/bin/elasticsearch-plugin list') do
+  its(:stdout) { should match /analysis-kuromoji/ }
+end

@@ -1,0 +1,8 @@
+---
+
+- name: install plugins
+  command: bin/elasticsearch-plugin install {{item}}
+  args:
+    chdir: /usr/share/elasticsearch
+    creates: /usr/share/elasticsearch/plugins/{{item}}
+  with_items: "{{ elasticsearch_plugins | default([]) }}"
