@@ -6,3 +6,5 @@
     chdir: /usr/share/elasticsearch
     creates: /usr/share/elasticsearch/plugins/{{item}}
   with_items: "{{ elasticsearch_plugins | default([]) }}"
+  notify:
+    - restart elasticsearch
