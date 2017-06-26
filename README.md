@@ -21,6 +21,8 @@ elasticsearch_version: 5.4.2
 ### Options
 
 ``` yaml
+elasticsearch_plugins:
+  - analysis-kuromoji
 elasticsearch_config_template: elasticsearch.yml.j2
 elasticsearch_jvm_options_template: jvm.options.j2
 
